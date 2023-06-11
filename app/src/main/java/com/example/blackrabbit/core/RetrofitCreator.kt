@@ -17,6 +17,14 @@ object RetrofitCreator {
             .build()
     }
 
+    private fun toiletRetrofit(): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl(UrlUtils.FIND_PUBLIC_TOILET_API_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(createOkHttpClient())
+            .build()
+    }
+
     private fun createOkHttpClient(): OkHttpClient {
         val interceptor = HttpLoggingInterceptor()
 
@@ -32,6 +40,10 @@ object RetrofitCreator {
     }
 
     fun <T> createV1(service: Class<T>): T {
+        return cocktailRetrofit().create(service)
+    }
+
+    fun <T> createToiletRetrofit(service: Class<T>): T {
         return cocktailRetrofit().create(service)
     }
 

@@ -28,12 +28,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun startSplash() {
         splashScreen?.setOnExitAnimationListener { splashScreenView ->
-            val scaleX = PropertyValuesHolder.ofFloat(View.SCALE_X, 1f, 5f, 1f)
-            val scaleY = PropertyValuesHolder.ofFloat(View.SCALE_Y, 1f, 5f, 1f)
+            val scaleX = PropertyValuesHolder.ofFloat(View.SCALE_X, 0.5f, 2f, 1f)
+            val scaleY = PropertyValuesHolder.ofFloat(View.SCALE_Y, 0.5f, 2f, 1f)
 
             ObjectAnimator.ofPropertyValuesHolder(splashScreenView.iconView, scaleX, scaleY).run {
                 interpolator = AnticipateInterpolator()
-                duration = 1000L
+                duration = 2000L
                 doOnEnd {
                     splashScreenView.remove()
                 }

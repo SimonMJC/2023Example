@@ -9,16 +9,16 @@
 
     <style name="Theme.App.Starting" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">#ffd200</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/baseline_man_24</item>
         <item name="postSplashScreenTheme">@style/Theme.SplashEx</item>
     </style>
 
     <style name="Theme.SplashEx" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <item name="android:windowSplashScreenBackground" tools:targetApi="S">#ffd200</item>
-        <item name="android:windowSplashScreenAnimatedIcon" tools:targetApi="S">@drawable/ic_launcher_foreground</item>
+        <item name="android:windowSplashScreenAnimatedIcon" tools:targetApi="S">@drawable/baseline_man_24</item>
         <item name="android:windowSplashScreenIconBackgroundColor" tools:targetApi="S">#ffd200</item>
-        <item name="android:windowSplashScreenAnimationDuration" tools:targetApi="S">2000</item>
-        <item name="android:windowSplashScreenBrandingImage" tools:targetApi="S">@drawable/ic_launcher_foreground</item>
+        <item name="android:windowSplashScreenAnimationDuration" tools:targetApi="S">4000</item>
+        <item name="android:windowSplashScreenBrandingImage" tools:targetApi="S">@drawable/baseline_man_24</item>
     </style>
 
 </resources>
