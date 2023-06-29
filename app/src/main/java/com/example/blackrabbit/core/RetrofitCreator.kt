@@ -44,7 +44,7 @@ object RetrofitCreator {
     }
 
     fun <T> createToiletRetrofit(service: Class<T>): T {
-        return cocktailRetrofit().create(service)
+        return toiletRetrofit().create(service)
     }
 
 }

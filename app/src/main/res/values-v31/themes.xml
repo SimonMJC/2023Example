@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="AppTheme" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">#111111</item>
+        <item name="colorPrimaryDark">#111111</item>
+        <item name="colorAccent">#2FFFA4</item>
+        <item name="actionBarTheme">@style/ActionbarTheme</item>
+        <item name="android:colorBackground">#ffffff</item>
+        <item name="android:statusBarColor">#ffffff</item>
+        <item name="android:splashScreenTheme">@style/Theme.App.Starting</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+    </style>
+</resources>
