@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.blackrabbit'
+    namespace 'com.example.wit'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.blackrabbit"
+        applicationId "com.example.wit"
         minSdk 24
         targetSdk 33
         versionCode 1
