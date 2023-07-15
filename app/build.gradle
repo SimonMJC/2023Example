@@ -101,4 +101,6 @@ dependencies {
 
     // Tests
     testImplementation("org.orbit-mvi:orbit-test:6.0.0")
+
+    implementation 'com.google.android.gms:play-services-location:21.0.1'
 }

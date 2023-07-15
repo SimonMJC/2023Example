@@ -1,19 +1,27 @@
 package com.example.wit.view.main
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.wit.base.intent.MainEvent
 import com.example.wit.base.intent.MainState
 import com.example.wit.base.viewmodel.BaseViewModel
+import com.example.wit.data.api.response.ToiletResponse
 import com.example.wit.data.repository.toilet.ToiletRepository
 import com.example.wit.data.repository.toilet.ToiletRepositoryImpl
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.runningFold
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class MainViewModel : BaseViewModel() {
 
@@ -24,9 +32,11 @@ class MainViewModel : BaseViewModel() {
 
     private val events = Channel<MainEvent>()
 
-    val state: StateFlow<MainState> = events.receiveAsFlow()
-        .runningFold(MainState(), ::reduceState)
+    val state: StateFlow<MainState> = events.receiveAsFlow().runningFold(MainState(), ::reduceState)
         .stateIn(viewModelScope, SharingStarted.Eagerly, MainState())
+
+    private val _toiletList = MutableSharedFlow<ArrayList<ToiletResponse.GeoInfoPublicToilet.ToiletInfo>>()
+    val toiletList: SharedFlow<ArrayList<ToiletResponse.GeoInfoPublicToilet.ToiletInfo>> = _toiletList.asSharedFlow()
 
     private fun reduceState(current: MainState, event: MainEvent): MainState = when (event) {
         is MainEvent.Loading -> current.copy(loading = true)
@@ -43,5 +53,20 @@ class MainViewModel : BaseViewModel() {
                 _sideEffects.send("$it is loaded")
             }
         }
+    }
+
+    suspend fun getToiletLocations() {
+        launch {
+            val deferred = withContext(Dispatchers.IO) {
+                repo.getToiletList()
+            }
+            Log.e("MainViewModel", "getToiletLocations:: $deferred")
+            deferred.service?.run {
+            Log.e("MainViewModel", "getToiletLocations:: ${toiletList.size}")
+                _toiletList.emit(toiletList)
+            }
+        }
+
+
     }
 }
