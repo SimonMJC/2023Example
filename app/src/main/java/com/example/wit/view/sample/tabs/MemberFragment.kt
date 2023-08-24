@@ -8,6 +8,9 @@ import com.example.wit.view.main.MainViewModel
 
 class MemberFragment: BindViewModelFragment<FragmentMemberBinding, MainViewModel>() {
 
+    companion object {
+        fun newInstance() = MemberFragment()
+    }
        override val layoutId: Int
         get() = R.layout.fragment_member
 

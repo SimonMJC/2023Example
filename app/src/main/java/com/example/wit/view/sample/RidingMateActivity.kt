@@ -5,6 +5,7 @@ import com.example.wit.R
 import com.example.wit.base.view.activity.BindViewModelActivity
 import com.example.wit.databinding.ActivityRidingMateBinding
 import com.example.wit.view.main.MainViewModel
+import com.example.wit.view.sample.tabs.MemberFragment
 
 class RidingMateActivity: BindViewModelActivity<ActivityRidingMateBinding, MainViewModel>() {
 
@@ -20,7 +21,12 @@ class RidingMateActivity: BindViewModelActivity<ActivityRidingMateBinding, MainV
 
 
     override fun initView() {
+        binding.lifecycleOwner = this
+        binding.vm = viewModel
 
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.flContainer, MemberFragment.newInstance())
+            .commitAllowingStateLoss()
     }
 
 
