@@ -56,7 +56,7 @@ abstract class BaseActivity : AppCompatActivity(), LoadingController, CoroutineS
         Log.e("BaseActivity", "onCreate::$savedInstanceState")
         onBackPressedDispatcher.addCallback(this, backPressedCallback)
         window.statusBarColor = getColor(R.color.white)
-
+        initView()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
