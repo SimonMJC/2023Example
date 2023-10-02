@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.example.wit.view.main.MainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.main.MainActivity">
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/clCustomTabContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <!--            <include-->
+            <!--                android:id="@+id/baseToolbar"-->
+            <!--                layout="@layout/layout_base_toolbar" />-->
+
+            <FrameLayout
+                android:id="@+id/flContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="56dp" />
+
+            <com.google.android.material.bottomappbar.BottomAppBar
+                android:id="@+id/babMain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom">
+
+                <com.google.android.material.bottomnavigation.BottomNavigationView
+                    android:id="@+id/bnvMain"
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp"
+                    android:layout_gravity="bottom"
+                    android:layout_marginEnd="16dp"
+                    android:background="@color/black"
+                    app:itemIconTint="#ffffff"
+                    app:itemTextColor="#ffffff"
+                    app:labelVisibilityMode="labeled"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:menu="@menu/menu_riding_mate" />
+            </com.google.android.material.bottomappbar.BottomAppBar>
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

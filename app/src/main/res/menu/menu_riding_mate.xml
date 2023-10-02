@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navHome"
+        android:icon="@drawable/member"
+        android:title="홈" />
+    <item
+        android:id="@+id/navRoulette"
+        android:icon="@drawable/home"
+        android:title="랜덤룰렛" />
+    <item
+        android:id="@+id/navWeb"
+        android:icon="@drawable/webview"
+        android:title="라메크" />
+    <item
+        android:id="@+id/navSetting"
+        android:icon="@drawable/settings"
+        android:title="설정" />
+</menu>
