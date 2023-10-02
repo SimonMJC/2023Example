@@ -24,6 +24,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
+import org.joda.time.DateTime
+import org.joda.time.DateTimeZone
 
 class MainActivity : BindViewModelActivity<ActivityMainBinding, MainViewModel>(), OnMapReadyCallback {
 
@@ -95,6 +97,10 @@ class MainActivity : BindViewModelActivity<ActivityMainBinding, MainViewModel>()
                 initMarker()
             }
         }
+    }
+
+    private fun String.sendLog() {
+        Log.e("CHECK_DATE", this)
     }
 
     override fun initViewModel() {

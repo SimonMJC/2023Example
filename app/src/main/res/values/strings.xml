@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">BlackRabbit</string>
     <string name="s_public_toilet_api_key">6a4455474a6e61673131314149624165</string>
+    <string name="title_activity_main_compose">MainComposeActivity</string>
 </resources>
